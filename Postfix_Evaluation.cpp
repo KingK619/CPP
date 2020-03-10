@@ -11,34 +11,24 @@ int main()
 int i=0;
     
   while(exp[i]!='\0')
-  {
+  {                 element1=stack[top];
+                    top--;
+                    element2=stack[top];
       switch(exp[i])
       {    
           case '+' :  
-                    element1=stack[top];
-                    top--;
-                    element2=stack[top];
-                     stack[top]=element1+element2;
-                       break;
-          case'-':  cout<<"-"; 
-                    element1=stack[top];
-                    top--;
-                    element2=stack[top];
-                     stack[top]=element2-element1; break;
-          case'*': element1=stack[top];
-                    top--;
-                      element2=stack[top];
+                     stack[top]=element1+element2;break;
+          case'-': 
+                   stack[top]=element2-element1; break;
+          case'*': 
                     stack[top]=element1*element2; break;
-          case'/': element1=stack[top];
-                    top--;
-                    element2=stack[top];
-                    
+          case'/':                    
                     stack[top]=element1/element2;break;
-          case'^': element1=stack[top];
+          case'^': 
                     stack[top]=element1*element1; break;
           default: 
-          
-                         top++;
+                      
+                         top+=2; // top is inc. by 2 as we already done top-- above and we dont need them in this case.
                         stack[top]=exp[i]-48; // covert char to int
                         
                     
