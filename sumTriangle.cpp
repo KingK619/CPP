@@ -4,24 +4,37 @@ using namespace std;
 
 int count =0;
 vector<int> sum(vector<int> newVec)
-{   int i = 0;
-    while(i < newVec.size()-1 )
+{   static int i = 0;
+   if(i == newVec.size -1 )
+   {
+     newVec.pop_back();
+    return newVec;
+   }
+
+    if(i < newVec.size()-1 )
     {
         newVec[i] = newVec[i] + newVec[i+1];
         i++;
     }
-    newVec.pop_back();
-    return newVec;
+    return sum(newVec);
+    
 }
 
 void display(vector<int> vec)
-{   int i = 0;
-    while(i < vec.size())
+{  static int j = 0;
+    if(j == vec.size())
     {
-        cout<<vec[i]<<" ";
-        i++;
+      cout<<endl;
+
     }
-    cout<<endl;
+   else
+    {
+        cout<<vec[j]<<" ";
+        j++;
+        display(vec);
+    }
+    
+    
 }
 void sumTraingle( vector <int> vec )
 {
