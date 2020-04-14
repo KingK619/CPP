@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-int count =0;
+
 vector<int> sum(vector<int> newVec)
 {   static int i = 0;
    if(i == newVec.size -1 )
@@ -44,7 +44,6 @@ void sumTraingle( vector <int> vec )
          display(vec);
     }    
 }
-
 
 int main()
 {
